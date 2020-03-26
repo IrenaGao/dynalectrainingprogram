@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    </head>
+    <header>
+        <img src="{{ url_for('static', filename='images/DYNALEC.JPG') }}" alt=dynaleclogo />
+    </header>
+        <body>
+            <h1>Add Course</h1>
+            <a href = "{{ url_for('courses') }}"><p><div class="button"><span>Cancel</span></div></p></a>    
+            {% block content %} 
+            <form action="{{ url_for('addcourse', idcourses=10, name='hi', courseno=3, deptid='qa', timecomp=6, freqperyear=1, allemp=0) }}" id="addcourse" class="box" method="post">
+                <div class="label">{{ form.idcourses.label }}</div> 
+                <div class="input">{{ form.idcourses }}</div> <br><br>
+                <div class="label">{{ form.name.label }}</div> 
+                <div class="input">{{ form.name }}</div> <br><br>
+                <div class="label">{{ form.courseno.label }}</div> 
+                <div class="input">{{ form.courseno }}</div> <br><br>
+                <div class="label">{{ form.deptid.label }}</div> 
+                <div class="input">{{ form.deptid }}</div> <br><br>
+                <div class="label">{{ form.timecomp.label }}</div> 
+                <div class="input">{{ form.timecomp }}</div> <br><br>
+                <div class="label">{{ form.freqperyear.label }}</div> 
+                <div class="input">{{ form.freqperyear }}</div> <br><br>
+                <div class="label">{{ form.allemp.label }}</div> 
+                <div class="input">{{ form.allemp }}</div> <br><br>
+                {{ form.submit }}</div> <br><br>
+            </form>
+            {% endblock %}
+        </body>
+</html>

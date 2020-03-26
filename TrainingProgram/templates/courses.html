@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+            <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    </head>
+    <header>
+        <img src="{{ url_for('static', filename='images/DYNALEC.JPG') }}" alt=dynaleclogo />
+    </header>
+        <body>
+            <div class="body">
+            <a href = "{{ url_for('index') }}"><p><div class="index">Home</div></p></a>
+            <a href = ""><p><div class="viewmain">View/Maintain Courses Taken</div></p></a>
+            <h1>Courses</h1>
+                <a href = "{{ url_for('addcourseform') }}"><p><div class="button"><span>Add Course</span></div></p></a>
+                <table align="center">
+                    <tr>
+                        <p><th class="box"><b>Course Name</b></th></p>
+                        <p><th class="box">Course No</th></p>
+                        <p><th class="box">Dept ID</th></p>
+                        <p><th class="box">Time Comp</th></p>
+                        <p><th class="box">Freq per Year</th></p>
+                        <p><th class="box">All Employees?</th></p>
+                    </tr>
+                    {% for rec in records %}
+                    <tr>
+                        <td class="box"><a href="{{ url_for('singlecourse', idcourses=rec[0]) }}"><p>{{rec[1]}}</a></p></td>
+                        <td class="box"><p>{{rec[2]}}</p></td>
+                        <td class="box"><p>{{rec[3]}}</p></td>
+                        <td class="box"><p>{{rec[4]}}</p></td>
+                        <td class="box"><p>{{rec[5]}}</p></td>
+                        <td class="box"><p>{{rec[6]}}</p></td>
+                    </tr>
+                    {%endfor%}
+                </table>
+            </div>
+        </body>
+</html>
